@@ -1,0 +1,29 @@
+{
+  "name": "api-template",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "mocha \"**/*.test.js\" --timeout 15000",
+    "watch": "mocha --watch \"tests/**/*.test.js\" --timeout 15000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "axios": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.4.0",
+    "eslint": "^8.44.0",
+    "mocha": "^10.2.0"
+  }
+}
