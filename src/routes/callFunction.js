@@ -8,11 +8,20 @@ export const callFunction = errorCatcher(
    * @param {import("express").Response} res
    */
   async(req,res) => {
-    const { city } = req.body
+    const { city,postal_code,location } = req.body
     const apiKey = process.env.WEATHER_BIT_KEY
     const url = process.env.WEATHER_BIT_URL
+    let params = `key=${apiKey}`
+    if(city)
+      params += `&city=${city}`
+    else if(postal_code)
+      params += `&postal_code=${postal_code}`
+    else if(location)
+      params += `&lat=${location.lat}&lon=${location.lon}`
+    else
+      res.status(400).send({ success: false,message: `invalid parameters provided` })
     try{
-      const resp = await axios.get(`${url}?key=${apiKey}&city=${city}`)
+      const resp = await axios.get(`${url}?${params}`)
       const [data] = resp.data.data
       if(!data.temp || !data.city_name)
         res.send({ success: false })
