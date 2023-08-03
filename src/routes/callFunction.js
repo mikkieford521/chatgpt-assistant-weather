@@ -8,11 +8,11 @@ export const callFunction = errorCatcher(
    * @param {import("express").Response} res
    */
   async(req,res) => {
-    const { postal_code } = req.body
+    const { city } = req.body
     const apiKey = process.env.WEATHER_BIT_KEY
     const url = process.env.WEATHER_BIT_URL
     try{
-      const resp = await axios.get(`${url}?key=${apiKey}&postal_code=${postal_code}`)
+      const resp = await axios.get(`${url}?key=${apiKey}&city=${city}`)
       const [data] = resp.data.data
       if(!data.temp || !data.city_name)
         res.send({ success: false })
