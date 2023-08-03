@@ -14,7 +14,7 @@ export const docs = errorCatcher(async(req,res) => {
         },
         "location": {
           "type": `string`,
-          "description": `location for which the weather is requested. Use lat=<lattitude>&lon=<longitude> format for coordinates.`,
+          "description": `location for which the weather is requested. Use lat,long format for coordinates.`,
         },
         "days": {
           "type": `integer`,

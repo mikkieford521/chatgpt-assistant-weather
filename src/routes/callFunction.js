@@ -90,8 +90,10 @@ function getQueryParams(body){
     params += `&city=${location}`
   else if(location_type === `postal_code`)
     params += `&postal_code=${location}`
-  else if(location_type === `coordinates`)
-    params += `&${location}`
+  else if(location_type === `coordinates`){
+    const [lat,long] = location.split(`,`)
+    params += `&lat=${lat}&lon=${long}`
+  }
   else return false
 
   return params
