@@ -6,34 +6,21 @@ export const docs = errorCatcher(async(req,res) => {
     "description": `returns the weather data of the location the user asked for`,
     "parameters": {
       "type": `object`,
-      "anyOf": [
-        { "required": [`city`] },
-        { "required": [`postal_code`] },
-        { "required": [`coordinates`] },
-      ],
       "properties": {
-        "city": {
+        "location_type": {
           "type": `string`,
-          "description": `City name for which the weather is requested`,
+          "enum": [`city`,`postal_code`,`coordinates`],
+          "description": `Parameter name to use for location`,
         },
-        "postal_code": {
+        "location": {
           "type": `string`,
-          "description": `postal/zip code of the city for which the weather is requested`,
+          "description": `location for which the weather is requested. Use lat=<lattitude>&lon=<longitude> format for coordinates.`,
         },
-        "coordinates": {
-          "type": `object`,
-          "description": `co-ordinates of the city for which the weather is requested`,
-          "required": [`lat`,`long`],
-          "properties": {
-            "lat": {
-              "type": `string`,
-              "description": `lattitude city for which the weather is requested`,
-            },
-            "long": {
-              "type": `string`,
-              "description": `longitude city for which the weather is requested`,
-            },
-          },
+        "days": {
+          "type": `integer`,
+          "minimum": 1,
+          "exclusiveMaximum": 7,
+          "description": `No of days the weather forecast is required.`,
         },
       },
     },
