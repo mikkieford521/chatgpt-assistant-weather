@@ -36,7 +36,6 @@ async function getForecast(params,days){
   const url = `${process.env.WEATHER_BIT_URL}/forecast/daily`
   const resp = await axios.get(`${url}?${params}`)
   const { data } = resp
-  console.log(data)
   if(!data.city_name)
     return false
   const weather = []
