@@ -15,7 +15,7 @@ app.use(logging)
 app.use(lowerCaseHeaders)
 
 app.get(`/hello`,helloWorld)
-app.get(`/getWeather/docs`,docs)
-app.post(`/getWeather/function`,authorization,callFunction)
+app.get(`/getWeather`,docs)
+app.post(`/getWeather`,authorization,callFunction)
 
 app.use(errorHandler)
