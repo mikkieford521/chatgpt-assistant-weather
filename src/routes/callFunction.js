@@ -8,8 +8,7 @@ export const callFunction = errorCatcher(
    * @param {import("express").Response} res
    */
   async(req,res) => {
-
-    const { city,postal_code,location } = req.body.parameters
+    const { city,postal_code,coordinates } = req.body.parameters
     const apiKey = process.env.WEATHER_BIT_KEY
     const url = process.env.WEATHER_BIT_URL
     let params = `key=${apiKey}`
@@ -17,8 +16,8 @@ export const callFunction = errorCatcher(
       params += `&city=${city}`
     else if(postal_code)
       params += `&postal_code=${postal_code}`
-    else if(location)
-      params += `&lat=${location.lat}&lon=${location.lon}`
+    else if(coordinates)
+      params += `&lat=${coordinates.lat}&lon=${coordinates.lon}`
     else
       res.status(400).send({ success: false,message: `invalid parameters provided` })
     try{
