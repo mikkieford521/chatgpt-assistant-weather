@@ -9,7 +9,6 @@ export const callFunction = errorCatcher(
    */
   async(req,res) => {
     const { city,postal_code,coordinates } = req.body.parameters
-    console.log(coordinates)
     const apiKey = process.env.WEATHER_BIT_KEY
     const url = process.env.WEATHER_BIT_URL
     let params = `key=${apiKey}`
