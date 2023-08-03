@@ -8,7 +8,8 @@ export const callFunction = errorCatcher(
    * @param {import("express").Response} res
    */
   async(req,res) => {
-    const { city,postal_code,location } = req.body
+
+    const { city,postal_code,location } = req.body.parameters
     const apiKey = process.env.WEATHER_BIT_KEY
     const url = process.env.WEATHER_BIT_URL
     let params = `key=${apiKey}`
