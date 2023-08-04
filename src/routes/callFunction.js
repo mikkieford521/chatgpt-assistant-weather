@@ -19,6 +19,7 @@ export const callFunction = errorCatcher(
         weather = await getForecast(params,body.days)
       else
         weather = await getWeather(params)
+      console.log(weather)
       if(!weather)
         res.send({ success: false })
       else
