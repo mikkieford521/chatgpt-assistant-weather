@@ -38,10 +38,10 @@ async function getForecast(params,days){
   const { data } = resp
   if(!data.city_name)
     return false
-  const weather = {}
+  const weather = []
   for(let i = 0; i < days; i++){
     const item = data.data[i]
-    weather[item.datetime] = {
+    weather.push({
       date: item.datetime,
       city: data.city_name,
       status: item.weather.description,
@@ -54,7 +54,7 @@ async function getForecast(params,days){
       wind_dir: item.wind_cdir,
       wind_speed: item.wind_spd,
       visibility: item.vis,
-    }
+    })
   }
   return weather
 }
