@@ -3,6 +3,7 @@ import { errorCatcher } from "../middleware/errorCatcher.js"
 export const docs = errorCatcher(async(req,res) => {
   res.send({
     "name": `getWeather`,
+    "example": `Show me current weather of London`,
     "description": `returns the weather data of the location the user asked for`,
     "parameters": {
       "type": `object`,
