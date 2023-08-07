@@ -1,5 +1,6 @@
 import { errorCatcher } from "../middleware/errorCatcher.js"
 import axios from "axios"
+import 'dotenv/config'
 
 export const callFunction = errorCatcher(
   /**
