@@ -70,6 +70,7 @@ async function getWeather(params){
     return false
 
   return {
+    observed_at: data.ob_time,
     city: data.city_name,
     status: data.weather.description,
     unit: `Celsius`,
