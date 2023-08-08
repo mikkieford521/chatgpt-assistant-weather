@@ -96,7 +96,8 @@ function getQueryParams(body){
     const [lat,long] = location.split(`,`)
     params += `&lat=${lat}&lon=${long}`
   }
-  else return false
+  else
+    params += `&city=${location}`
 
   return params
 }
